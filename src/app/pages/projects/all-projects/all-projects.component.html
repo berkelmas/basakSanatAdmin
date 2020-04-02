@@ -1,0 +1,69 @@
+<mat-card>
+  <mat-card-header class="d-flex justify-content-between align-items-center">
+    <mat-card-title class="sezin-dark" style="font-weight: 400;">
+      Tüm Projeler
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="mat-elevation-z8">
+      <table style="width: 100%;" mat-table [dataSource]="dataSource">
+        <!-- title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Başlık</th>
+          <td mat-cell *matCellDef="let project">
+            {{ project.title }}
+          </td>
+        </ng-container>
+
+        <!-- actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td
+            class="text-right"
+            mat-cell
+            *matCellDef="let project; let i = index"
+          >
+            <button
+              matTooltip="Proje Detayları"
+              [matTooltipPosition]="'above'"
+              (click)="navigateToEdit(project)"
+              class="no-outline ml-3"
+              mat-mini-fab
+              color="accent"
+            >
+              <i class="fal fa-info fa-lg"></i>
+            </button>
+            <button
+              matTooltip="Proje Düzenle"
+              [matTooltipPosition]="'above'"
+              (click)="navigateToEdit(project)"
+              class="no-outline ml-3"
+              mat-mini-fab
+              color="primary"
+            >
+              <i class="fal fa-edit fa-lg"></i>
+            </button>
+            <button
+              matTooltip="Proje Sil"
+              [matTooltipPosition]="'above'"
+              (click)="navigateToDelete(project)"
+              class="no-outline ml-3"
+              mat-mini-fab
+              color="warn"
+            >
+              <i class="fal fa-trash fa-lg"></i>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[20]"
+        showFirstLastButtons
+      ></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>
