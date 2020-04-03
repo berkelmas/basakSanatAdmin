@@ -42,6 +42,18 @@ const MENUITEMS = [
     name: "Projeler",
     type: "link",
     icon: "av_timer"
+  },
+  {
+    state: "scholarships",
+    name: "Burslar",
+    type: "link",
+    icon: "av_timer"
+  },
+  {
+    state: "announcements",
+    name: "Duyurular",
+    type: "link",
+    icon: "av_timer"
   }
 ];
 

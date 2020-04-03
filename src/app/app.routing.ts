@@ -20,6 +20,14 @@ export const AppRoutes: Routes = [
       {
         path: "projects",
         loadChildren: "./pages/projects/projects.module#ProjectsModule"
+      },
+      {
+        path: "scholarships",
+        loadChildren: "./pages/burslar/burslar.module#BurslarModule"
+      },
+      {
+        path: "announcements",
+        loadChildren: "./pages/duyuru/duyuru.module#DuyuruModule"
       }
     ]
   },

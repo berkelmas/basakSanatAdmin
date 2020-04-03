@@ -1,12 +1,12 @@
 <mat-card>
   <mat-card-header class="d-flex justify-content-between align-items-center">
     <mat-card-title class="sezin-dark" style="font-weight: 400;">
-      Tüm Projeler
+      Tüm Burslar
     </mat-card-title>
     <button
       matTooltip="Yeni Oluştur"
       [matTooltipPosition]="'above'"
-      (click)="navigateToCreate()"
+      [routerLink]="['/scholarships', 'create-scholarship']"
       class="no-outline"
       mat-mini-fab
       color="accent"
@@ -20,33 +20,19 @@
         <!-- title Column -->
         <ng-container matColumnDef="title">
           <th mat-header-cell *matHeaderCellDef>Başlık</th>
-          <td mat-cell *matCellDef="let project">
-            {{ project.title }}
+          <td mat-cell *matCellDef="let burs">
+            {{ burs.title }}
           </td>
         </ng-container>
 
         <!-- actions Column -->
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef></th>
-          <td
-            class="text-right"
-            mat-cell
-            *matCellDef="let project; let i = index"
-          >
+          <td class="text-right" mat-cell *matCellDef="let burs; let i = index">
             <button
-              matTooltip="Proje Detayları"
+              matTooltip="Burs Düzenle"
               [matTooltipPosition]="'above'"
-              (click)="navigateToEdit(project)"
-              class="no-outline ml-3"
-              mat-mini-fab
-              color="accent"
-            >
-              <i class="fal fa-info fa-lg"></i>
-            </button>
-            <button
-              matTooltip="Proje Düzenle"
-              [matTooltipPosition]="'above'"
-              (click)="navigateToEdit(project)"
+              [routerLink]="['/scholarships', 'edit-scholarship', burs.id]"
               class="no-outline ml-3"
               mat-mini-fab
               color="primary"
@@ -54,9 +40,9 @@
               <i class="fal fa-edit fa-lg"></i>
             </button>
             <button
-              matTooltip="Proje Sil"
+              matTooltip="Burs Sil"
               [matTooltipPosition]="'above'"
-              (click)="navigateToDelete(project)"
+              [routerLink]="['/scholarships', 'delete-scholarship', burs.id]"
               class="no-outline ml-3"
               mat-mini-fab
               color="warn"

@@ -1,12 +1,12 @@
 <mat-card>
   <mat-card-header class="d-flex justify-content-between align-items-center">
     <mat-card-title class="sezin-dark" style="font-weight: 400;">
-      Tüm Projeler
+      Tüm Duyurular
     </mat-card-title>
     <button
       matTooltip="Yeni Oluştur"
       [matTooltipPosition]="'above'"
-      (click)="navigateToCreate()"
+      [routerLink]="['/announcements', 'create-announcement']"
       class="no-outline"
       mat-mini-fab
       color="accent"
@@ -20,8 +20,8 @@
         <!-- title Column -->
         <ng-container matColumnDef="title">
           <th mat-header-cell *matHeaderCellDef>Başlık</th>
-          <td mat-cell *matCellDef="let project">
-            {{ project.title }}
+          <td mat-cell *matCellDef="let duyuru">
+            {{ duyuru.title }}
           </td>
         </ng-container>
 
@@ -31,22 +31,12 @@
           <td
             class="text-right"
             mat-cell
-            *matCellDef="let project; let i = index"
+            *matCellDef="let duyuru; let i = index"
           >
             <button
-              matTooltip="Proje Detayları"
+              matTooltip="Duyuru Düzenle"
               [matTooltipPosition]="'above'"
-              (click)="navigateToEdit(project)"
-              class="no-outline ml-3"
-              mat-mini-fab
-              color="accent"
-            >
-              <i class="fal fa-info fa-lg"></i>
-            </button>
-            <button
-              matTooltip="Proje Düzenle"
-              [matTooltipPosition]="'above'"
-              (click)="navigateToEdit(project)"
+              [routerLink]="['/announcements', 'edit-announcement', duyuru.id]"
               class="no-outline ml-3"
               mat-mini-fab
               color="primary"
@@ -54,9 +44,13 @@
               <i class="fal fa-edit fa-lg"></i>
             </button>
             <button
-              matTooltip="Proje Sil"
+              matTooltip="Duyuru Sil"
               [matTooltipPosition]="'above'"
-              (click)="navigateToDelete(project)"
+              [routerLink]="[
+                '/announcements',
+                'delete-announcement',
+                duyuru.id
+              ]"
               class="no-outline ml-3"
               mat-mini-fab
               color="warn"

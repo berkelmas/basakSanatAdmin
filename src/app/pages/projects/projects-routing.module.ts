@@ -7,6 +7,7 @@ import { CreateProjectComponent } from "./create-project/create-project.componen
 const routes: Routes = [
   {
     path: "",
+    pathMatch: "full",
     redirectTo: "/projects/all-projects"
   },
   {
