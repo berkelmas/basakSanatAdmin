@@ -6,7 +6,7 @@ import { AppBlankComponent } from "./layouts/blank/blank.component";
 export const AppRoutes: Routes = [
   {
     path: "auth",
-    loadChildren: "./pages/auth/auth.module#AuthModule"
+    loadChildren: "./pages/auth/auth.module#AuthModule",
   },
   {
     path: "",
@@ -15,21 +15,39 @@ export const AppRoutes: Routes = [
       {
         path: "",
         redirectTo: "/projects/all-projects",
-        pathMatch: "full"
+        pathMatch: "full",
       },
       {
         path: "projects",
-        loadChildren: "./pages/projects/projects.module#ProjectsModule"
+        loadChildren: "./pages/projects/projects.module#ProjectsModule",
       },
       {
         path: "scholarships",
-        loadChildren: "./pages/burslar/burslar.module#BurslarModule"
+        loadChildren: "./pages/burslar/burslar.module#BurslarModule",
+      },
+      {
+        path: "scholarships-apply",
+        loadChildren:
+          "./pages/burs-basvuru/burs-basvuru.module#BursBasvuruModule",
       },
       {
         path: "announcements",
-        loadChildren: "./pages/duyuru/duyuru.module#DuyuruModule"
-      }
-    ]
+        loadChildren: "./pages/duyuru/duyuru.module#DuyuruModule",
+      },
+      {
+        path: "workshops",
+        loadChildren: "./pages/atolyeler/atolyeler.module#AtolyelerModule",
+      },
+      {
+        path: "workshops-apply",
+        loadChildren:
+          "./pages/atolye-basvuru/atolye-basvuru.module#AtolyeBasvuruModule",
+      },
+      {
+        path: "contacts",
+        loadChildren: "./pages/iletisim/iletisim.module#IletisimModule",
+      },
+    ],
   },
   // {
   //   path: "",
@@ -44,6 +62,6 @@ export const AppRoutes: Routes = [
   // },
   {
     path: "**",
-    redirectTo: "authentication/404"
-  }
+    redirectTo: "authentication/404",
+  },
 ];

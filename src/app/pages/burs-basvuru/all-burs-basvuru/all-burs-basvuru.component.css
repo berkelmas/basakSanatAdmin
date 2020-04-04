@@ -1,0 +1,31 @@
+.table-container {
+  width: 100%;
+  overflow: auto;
+}
+
+tr.sezin-detail-row {
+  height: 0;
+}
+
+mat-row,
+mat-header-row,
+mat-footer-row,
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  border-bottom-color: #d0d0d0;
+}
+
+.sezin-element-row td {
+  border-bottom-width: 0;
+}
+
+.sezin-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+:host /deep/.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #f7f7f7;
+}

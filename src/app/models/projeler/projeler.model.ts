@@ -15,3 +15,19 @@ export interface IGetAllProjelerResponse extends IGeneralResponse {
 export interface IGetSingleProjeResponse extends IGeneralResponse {
   result: IProje;
 }
+
+export interface ICreateProjectResponse extends IGeneralResponse {
+  result: boolean;
+}
+
+export interface IUpdateProjectResponse extends IGeneralResponse {
+  result: boolean;
+}
+
+export interface IGetProjectByIdResponse extends IGeneralResponse {
+  result: IProje;
+}
+
+export interface IDeleteProjectResponse extends IGeneralResponse {
+  result: boolean;
+}

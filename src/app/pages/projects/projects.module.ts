@@ -5,13 +5,23 @@ import { CreateProjectComponent } from "./create-project/create-project.componen
 import { UpdateProjectComponent } from "./update-project/update-project.component";
 import { ProjectsRoutingModule } from "./projects-routing.module";
 import { DemoMaterialModule } from "../../demo-material-module";
+import { ReactiveFormsModule } from "@angular/forms";
+import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
+import { DeleteProjectComponent } from './delete-project/delete-project.component';
 
 @NgModule({
   declarations: [
     AllProjectsComponent,
     CreateProjectComponent,
-    UpdateProjectComponent
+    UpdateProjectComponent,
+    DeleteProjectComponent
   ],
-  imports: [CommonModule, ProjectsRoutingModule, DemoMaterialModule]
+  imports: [
+    CommonModule,
+    ProjectsRoutingModule,
+    ReactiveFormsModule,
+    CKEditorModule,
+    DemoMaterialModule
+  ]
 })
 export class ProjectsModule {}

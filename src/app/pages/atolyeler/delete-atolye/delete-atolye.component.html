@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Atölye Sil</mat-card-title>
+  </mat-card-header>
+  <mat-card-content *ngIf="atolye">
+    {{ atolye.title }} başlıklı atölyeyi silmek istediğinize emin misiniz?
+    <div align="end">
+      <button mat-raised-button color="warn" (click)="handleDelete()">
+        Sil
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

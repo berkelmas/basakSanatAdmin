@@ -7,11 +7,12 @@ import {
   ICreateNewBursResponse,
   IUpdateBursResponse,
   IDeleteBursResponse,
-  IGetBursByIdResponse
+  IGetBursByIdResponse,
+  IGetBursAppliesResponse,
 } from "../../models/burslar/burs.model";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class BursService {
   constructor(private http: HttpClient) {}
@@ -19,7 +20,7 @@ export class BursService {
   getAllBurs(): Observable<IGetAllBursResponse> {
     return this.http
       .get<IGetAllBursResponse>("Scholarship/GetAll")
-      .pipe(catchError(err => throwError(err)));
+      .pipe(catchError((err) => throwError(err)));
   }
 
   createNewBurs(
@@ -31,15 +32,15 @@ export class BursService {
       .post<ICreateNewBursResponse>("Scholarship/create", {
         title,
         description,
-        summary
+        summary,
       })
-      .pipe(catchError(err => throwError(err)));
+      .pipe(catchError((err) => throwError(err)));
   }
 
   getBursById(id: string): Observable<IGetBursByIdResponse> {
     return this.http
       .post<IGetBursByIdResponse>("Scholarship/GetById", { id })
-      .pipe(catchError(err => throwError(err)));
+      .pipe(catchError((err) => throwError(err)));
   }
 
   updateBurs(
@@ -53,14 +54,26 @@ export class BursService {
         id,
         title,
         summary,
-        description
+        description,
       })
-      .pipe(catchError(err => throwError(err)));
+      .pipe(catchError((err) => throwError(err)));
   }
 
   deleteBurs(id: string): Observable<IDeleteBursResponse> {
     return this.http
       .post<IDeleteBursResponse>("Scholarship/Delete", { id })
-      .pipe(catchError(err => throwError(err)));
+      .pipe(catchError((err) => throwError(err)));
+  }
+
+  getBursApplies(
+    pageNumber: number,
+    pageSize: number
+  ): Observable<IGetBursAppliesResponse> {
+    return this.http
+      .post<IGetBursAppliesResponse>("Scholarship/GetAllApplies", {
+        pageNumber,
+        pageSize,
+      })
+      .pipe(catchError((err) => throwError(err)));
   }
 }

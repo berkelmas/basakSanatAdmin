@@ -1,12 +1,12 @@
 <mat-card>
   <mat-card-header class="d-flex justify-content-between align-items-center">
     <mat-card-title class="sezin-dark" style="font-weight: 400;">
-      Tüm Projeler
+      Tüm Atölyeler
     </mat-card-title>
     <button
       matTooltip="Yeni Oluştur"
       [matTooltipPosition]="'above'"
-      [routerLink]="['/projects', 'create-project']"
+      [routerLink]="['/workshops', 'create-workshop']"
       class="no-outline"
       mat-mini-fab
       color="accent"
@@ -20,8 +20,16 @@
         <!-- title Column -->
         <ng-container matColumnDef="title">
           <th mat-header-cell *matHeaderCellDef>Başlık</th>
-          <td mat-cell *matCellDef="let project">
-            {{ project.title }}
+          <td mat-cell *matCellDef="let workshop">
+            {{ workshop.title }}
+          </td>
+        </ng-container>
+
+        <!-- date Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Tarih</th>
+          <td mat-cell *matCellDef="let workshop">
+            {{ workshop.date }}
           </td>
         </ng-container>
 
@@ -31,12 +39,12 @@
           <td
             class="text-right"
             mat-cell
-            *matCellDef="let project; let i = index"
+            *matCellDef="let workshop; let i = index"
           >
             <button
-              matTooltip="Proje Düzenle"
+              matTooltip="Atölye Düzenle"
               [matTooltipPosition]="'above'"
-              [routerLink]="['/projects', 'edit-project', project.id]"
+              [routerLink]="['/workshops', 'edit-workshop', workshop.id]"
               class="no-outline ml-3"
               mat-mini-fab
               color="primary"
@@ -44,9 +52,9 @@
               <i class="fal fa-edit fa-lg"></i>
             </button>
             <button
-              matTooltip="Proje Sil"
+              matTooltip="Atölye Sil"
               [matTooltipPosition]="'above'"
-              [routerLink]="['/projects', 'delete-project', project.id]"
+              [routerLink]="['/workshops', 'delete-workshop', workshop.id]"
               class="no-outline ml-3"
               mat-mini-fab
               color="warn"

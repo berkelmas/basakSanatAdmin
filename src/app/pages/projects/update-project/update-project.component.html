@@ -1,1 +1,89 @@
-<p>update-project works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Proje Düzenle</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="itemForm">
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="Başlık" formControlName="title" />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Kısa Açıklama"
+            formControlName="summary"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <div class="col-12 p-0">
+          <ckeditor
+            [editor]="Editor"
+            data="<p>Burs İçeriği</p>"
+            [config]="{
+              language: 'tr',
+              toolbar: [
+                'heading',
+                '|',
+                'bold',
+                'italic',
+                'alignment',
+                'fontColor',
+                'strikethrough',
+                'underline',
+                'numberedList',
+                'bulletedList',
+                'indent',
+                'outdent'
+              ]
+            }"
+            (ready)="onReady($event)"
+            formControlName="content"
+          ></ckeditor>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div
+          class="col-md-6 col-sm-12 d-flex justify-content-start align-items-center"
+        >
+          <p style="margin-bottom: 0;" class="mr-4">
+            {{
+              !selectedFileName
+                ? "Resim Seçiniz"
+                : selectedFileName.length > 20
+                ? (selectedFileName | slice: 0:20) + "..."
+                : selectedFileName
+            }}
+          </p>
+          <input
+            (change)="onFileChange($event)"
+            accept="image/jpeg, image/png"
+            style="display: none;"
+            id="input-file-id"
+            type="file"
+          />
+          <button type="button" mat-raised-button>
+            <label style="margin: 0;" for="input-file-id">Yükle</label>
+          </button>
+        </div>
+      </div>
+
+      <div align="end" class="mt-3">
+        <button
+          (click)="handleSubmit()"
+          type="button"
+          color="primary"
+          mat-raised-button
+        >
+          Kaydet
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

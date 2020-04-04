@@ -1,7 +1,7 @@
 import { IGeneralResponse } from "../general/table.model";
 
 export interface IContactForm {
-  id: string;
+  id?: string;
   name: string;
   email: string;
   message: string;

@@ -26,3 +26,16 @@ export interface IDeleteBursResponse extends IGeneralResponse {
 export interface IGetBursByIdResponse extends IGeneralResponse {
   result: IBurs;
 }
+
+export interface IBursApplication {
+  id?: string;
+  name: string;
+  phone: string;
+  email: string;
+  scholarship: string;
+  message: string;
+}
+
+export interface IGetBursAppliesResponse extends IGeneralResponse {
+  result: IBursApplication[];
+}
